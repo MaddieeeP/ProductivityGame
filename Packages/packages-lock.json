@@ -1,5 +1,64 @@
 {
   "dependencies": {
+    "com.daydream.extensionmethods": {
+      "version": "https://github.com/MaddieeeP/ExtensionMethods.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.6"
+      },
+      "hash": "4638e75aa20b6a1718bb512d8c46e800ac549203"
+    },
+    "com.daydream.fsm": {
+      "version": "https://github.com/MaddieeeP/FSM.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.daydream.extensionmethods": "0.0.0"
+      },
+      "hash": "ca414472ffeea674faadb1bc9220998dd04b4efa"
+    },
+    "com.daydream.musicsystem": {
+      "version": "https://github.com/MaddieeeP/MusicSystem.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.daydream.extensionmethods": "0.0.0"
+      },
+      "hash": "1842d6e5e7b5f47a9170565eab3e57bb2e79f4f8"
+    },
+    "com.daydream.physicssystem": {
+      "version": "https://github.com/MaddieeeP/PhysicsSystem.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.splines": "2.0.0",
+        "com.daydream.extensionmethods": "0.0.0",
+        "com.daydream.splineextensions": "0.0.0",
+        "com.daydream.utilities": "0.0.0"
+      },
+      "hash": "74d3559e05b710859f0a3b1b6cfcb7163d0c3224"
+    },
+    "com.daydream.splineextensions": {
+      "version": "https://github.com/MaddieeeP/SplineExtensions.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.daydream.extensionmethods": "0.0.0",
+        "com.unity.mathematics": "1.2.6",
+        "com.unity.splines": "2.0.0"
+      },
+      "hash": "8f25ae7a4ec21e79e3f8525985ee8a463012ff6b"
+    },
+    "com.daydream.utilities": {
+      "version": "https://github.com/MaddieeeP/Utilities.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.daydream.extensionmethods": "0.0.0"
+      },
+      "hash": "42fb33ad2859953786ca8e205e049164587a8c6b"
+    },
     "com.unity.2d.animation": {
       "version": "9.1.2",
       "depth": 1,
@@ -163,9 +222,27 @@
     },
     "com.unity.mathematics": {
       "version": "1.2.6",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.settings-manager": {
+      "version": "2.0.1",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.splines": {
+      "version": "2.6.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.mathematics": "1.2.1",
+        "com.unity.settings-manager": "1.0.3"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.sysroot": {

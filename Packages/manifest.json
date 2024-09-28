@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.daydream.extensionmethods": "https://github.com/MaddieeeP/ExtensionMethods.git",
+    "com.daydream.fsm": "https://github.com/MaddieeeP/FSM.git",
+    "com.daydream.musicsystem": "https://github.com/MaddieeeP/MusicSystem.git",
+    "com.daydream.physicssystem": "https://github.com/MaddieeeP/PhysicsSystem.git",
+    "com.daydream.splineextensions": "https://github.com/MaddieeeP/SplineExtensions.git",
+    "com.daydream.utilities": "https://github.com/MaddieeeP/Utilities.git",
     "com.unity.collab-proxy": "2.5.2",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.31",
