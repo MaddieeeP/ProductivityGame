@@ -84,6 +84,11 @@ public class Data : MonoBehaviour
         }
     }
 
+    public List<Question> GetQuestions() 
+    {
+        return questions;
+    }
+
     public Question RandomQuestion()
     {
         LoadData();

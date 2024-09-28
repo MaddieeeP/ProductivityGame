@@ -164,4 +164,9 @@ public class AngryCrowMG : MonoBehaviour
 
         Reload();
     }
+
+    public static void returnToMenu()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }
