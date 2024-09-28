@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Data : MonoBehaviour
 {
-    public List<Question> questions;
+    public List<Question> questions = new List<Question>();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         LoadData();
 
-        AddQuestion("What is 1+1?", "2");
+        /*AddQuestion("What is 1+1?", "2");
         AddQuestion("What is 1+2?", "3");
         AddQuestion("What is 1+3?", "4");
         AddQuestion("What is 1+4?", "5");
@@ -22,7 +22,7 @@ public class Data : MonoBehaviour
 
         SaveData();
 
-        /*foreach (Question q in questions)
+        foreach (Question q in questions)
         {
             print(q.qText);
             print(q.aText);

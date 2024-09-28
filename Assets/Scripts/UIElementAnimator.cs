@@ -30,7 +30,7 @@ public class UIElementAnimator : MonoBehaviour
         _prevScale = _image.transform.localScale;
         _nextScale = _image.transform.localScale;
 
-        //NextState(new Vector3(0f, 0f, 0f), new Vector3(1000f, 1000f, 1000f), Color.magenta, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f), 10f, 100f, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f), 0.5f, 3f);
+        NextState(new Vector3(0f, 0f, 0f), new Vector3(1000f, 1000f, 1000f), Color.magenta, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f), 10f, 100f, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f), 2f, 4f);
     }
 
     public void Update()
@@ -46,6 +46,11 @@ public class UIElementAnimator : MonoBehaviour
             _currentTime = 0f;
             _currentDuration = Random.Range(_minBobDuration, _maxBobDuration);
 
+            if (_currentCurve != _nextCurve)
+            {
+                _restPosition = _prevPosition;
+            }
+
             _currentCurve = _nextCurve;
         }
 
@@ -58,6 +63,8 @@ public class UIElementAnimator : MonoBehaviour
 
     public void NextState(Vector3 position, Vector3 scale, Color color, AnimationCurve moveCurve, float lerpDuration, float maxBobMovement, AnimationCurve bobCurve, float minBobDuration, float maxBobDuration)
     {
+        _currentTime = 0f;
+
         _prevPosition = _image.transform.position;
         _prevScale = _image.transform.localScale;
         _prevColor = _image.color;
