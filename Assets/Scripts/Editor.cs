@@ -20,6 +20,7 @@ public class Editor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Destroy(transform.GetComponent<Data>());
         //transform.AddComponent<Data>();
         data = transform.GetComponent<Data>();
         qs = data.GetQuestions();
@@ -58,6 +59,12 @@ public class Editor : MonoBehaviour
     public void ViewNextQ()
     {
         index--;
+        if (index < 0)
+        {
+            index = qs.Count;
+            return;
+        }
+
         qtext.text = qs[index].qText;
         atext.text = qs[index].aText;
         lastQText = qtext.text;
@@ -67,8 +74,11 @@ public class Editor : MonoBehaviour
         }
     }
 
-    public static void returnToMenu()
+    public void returnToMenu()
     {
-        SceneManager.LoadScene("Start");
+        data.SaveData();
+        SceneManager.UnloadScene("QuestionEditor");
+        Menu.Instance.menuButtons.SetActive(true);
+        Menu.Instance.circle.NextState(new Vector3(200f, 0f, 0f), new Vector3(1000f, 1000f, 1000f), Color.magenta, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f), 10f, 100f, AnimationCurve.EaseInOut(0f, 0f, 1f, 1f), 4f, 7f);
     }
 }

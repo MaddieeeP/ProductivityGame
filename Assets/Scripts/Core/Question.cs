@@ -1,3 +1,4 @@
+[System.Serializable]
 public class Question
 {
     private string _qText;

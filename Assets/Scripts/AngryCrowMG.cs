@@ -53,8 +53,12 @@ public class AngryCrowMG : MonoBehaviour
         answerHut = firstIndex;
 
         //Getting incorrect answer
-        q = data.RandomQuestion();
-        canvas.GetChild(secondIndex + 1).GetComponent<TMP_Text>().text = q.aText;
+        Question q2 = q;
+        while (q2.aText == q.aText)
+        {
+            q2 = data.RandomQuestion();
+        }
+        canvas.GetChild(secondIndex + 1).GetComponent<TMP_Text>().text = q2.aText;
 
         StartCoroutine("Timeout");
     }
