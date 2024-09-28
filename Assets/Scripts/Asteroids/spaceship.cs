@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class spaceship : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class spaceship : MonoBehaviour
     public float bullet_cooldown = 0.1f;
 
     public Object bullet_prefab;
+    public TMP_Text gg;
 
     float timer = 100;
 
@@ -15,6 +17,8 @@ public class spaceship : MonoBehaviour
     void Start()
     {
         this.transform.position = new Vector3(-10,0,0);
+        gg.SetText("");
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -39,5 +43,10 @@ public class spaceship : MonoBehaviour
 
     void shoot_gun(){
         Object.Instantiate(bullet_prefab, this.transform.position, new Quaternion(0,0,0,0));
+    }
+
+    void OnCollisionEnter2D(Collision2D col){
+        gg.SetText("GG GO NEXT");
+        Time.timeScale = 0;
     }
 }

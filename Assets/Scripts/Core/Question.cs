@@ -2,8 +2,6 @@ using System.Collections.Generic;
 
 public class Question
 {
-    static List<Question> question_list;
-
     private string _qText;
     private string _aText;
 
