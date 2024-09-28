@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AS : MonoBehaviour
 {
-    static char current_ans = "a";
+    static char current_ans = 'a';
 
     public Object asteroid_prefab;
 
