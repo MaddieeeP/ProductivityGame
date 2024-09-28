@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 public class Question
 {
     private string _qText;

@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    public float bullet_speed = 20f;
-
-    // Update is called once per frame
-    void Update()
+    public void FixedUpdate()
     {
-        this.transform.position += new Vector3(bullet_speed * Time.deltaTime, 0, 0);
-        if (this.transform.position.x > 14){
+        transform.position += new Vector3(AsteroidGameManager.Instance.laserSpeed * Time.fixedDeltaTime, 0, 0);
+        
+        if (transform.position.x > 2500)
+        {
             Destroy(gameObject);
         }
     }

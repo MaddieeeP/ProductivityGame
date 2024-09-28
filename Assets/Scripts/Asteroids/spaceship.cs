@@ -1,52 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.InputSystem;
 
-public class spaceship : MonoBehaviour
+public class Spaceship : MonoBehaviour
 {
-    public float spaceship_speed = 5f;
-    public float bullet_cooldown = 0.1f;
+    [SerializeField] private InputAction _move;
+    [SerializeField] private InputAction _shoot;
+    [SerializeField] private GameObject _laserPrefab;
+    [SerializeField] private float _spaceshipMovementSpeed = 5f;
+    [SerializeField] private float _laserCooldown = 0.2f;
 
-    public Object bullet_prefab;
-    public TMP_Text gg;
+    float _timer = 100;
 
-    float timer = 100;
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        this.transform.position = new Vector3(-10,0,0);
-        gg.SetText("");
-        Time.timeScale = 1;
+        _move.Enable();
+        _shoot.Enable();
+        _shoot.performed += context => TryShoot();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        timer += Time.deltaTime;
+        _move.Disable();
+        _shoot.Disable();
+    }
+    void FixedUpdate()
+    {
+        _timer += Time.fixedDeltaTime;
 
-        if (Input.GetKey(KeyCode.W) && (transform.position.y < 4.5)){
-            this.transform.position = this.transform.position + new Vector3(0,spaceship_speed * Time.deltaTime,0);
-        }
-        if (Input.GetKey(KeyCode.S) && (transform.position.y > -4.5)){
-            this.transform.position = this.transform.position + new Vector3(0,-spaceship_speed * Time.deltaTime,0);
-        }
-
-        if (Input.GetKey(KeyCode.Space)){
-            if(timer > bullet_cooldown){
-                shoot_gun();
-                timer = 0;
-            }
-        }
+        transform.position += new Vector3(0, _spaceshipMovementSpeed * Time.fixedDeltaTime * _shoot.ReadValue<float>(), 0f);
     }
 
-    void shoot_gun(){
-        Object.Instantiate(bullet_prefab, this.transform.position, new Quaternion(0,0,0,0));
+    void TryShoot()
+    {
+        if (_timer < _laserCooldown)
+        {
+            return;
+        }
+
+        _timer = 0f;
+        Instantiate(_laserPrefab, transform.position, transform.rotation);
     }
 
-    void OnCollisionEnter2D(Collision2D col){
-        gg.SetText("GG GO NEXT");
+    void OnCollisionEnter2D(Collision2D col)
+    {
         Time.timeScale = 0;
     }
 }

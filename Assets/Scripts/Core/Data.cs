@@ -11,16 +11,16 @@ public class Data : MonoBehaviour
     {
         LoadData();
 
-        /*AddQuestion("What is 1+1?", "2");
+        AddQuestion("What is 1+1?", "2");
         AddQuestion("What is 1+2?", "3");
         AddQuestion("What is 1+3?", "4");
         AddQuestion("What is 1+4?", "5");
         AddQuestion("What is 1+5?", "6");
         AddQuestion("What is 1+6?", "7");
         AddQuestion("What is 1+7?", "8");
-        AddQuestion("What is 1+8?", "9");*/
+        AddQuestion("What is 1+8?", "9");
 
-        //SaveData();
+        SaveData();
 
         /*foreach (Question q in questions)
         {
