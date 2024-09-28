@@ -64,7 +64,7 @@ public class Data : MonoBehaviour
         questions.Add(new Question(q, a));
     }
 
-    public void EditQuestion(string qOld, string qNew, string aNew)
+    public void EditQuestion(string qOld, string qNew = "", string aNew = "")
     {
         int i = 0;
         foreach (Question question in questions) 
@@ -77,6 +77,16 @@ public class Data : MonoBehaviour
         }
 
         questions.RemoveAt(i);
-        AddQuestion(qNew, aNew);
+
+        if (qNew != "")
+        {
+            AddQuestion(qNew, aNew);
+        }
+    }
+
+    public Question RandomQuestion()
+    {
+        LoadData();
+        return questions[Random.Range(0, questions.Count)];
     }
 }

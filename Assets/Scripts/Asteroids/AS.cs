@@ -5,7 +5,6 @@ using TMPro;
 
 public class AS : MonoBehaviour
 {
-
     public Object asteroid_prefab;
 
     public List<Question> list;
